@@ -1,0 +1,23 @@
+import numpy as np
+from sklearn.linear_model import LinearRegression
+import matplotlib.pyplot as plt
+
+reg = LinearRegression()
+
+x = np.array([6,8,10,12,14])
+y = np.array([10,15,20,25,30])
+
+reg.fit(x.reshape(-1, 1), y.reshape(5,1))
+
+a = np.array([0])
+z = reg.predict(a.reshape(-1, 1))
+
+plt.scatter(x, y, color="m", marker="o",)
+
+plt.plot(x, reg.predict(x.reshape(-1, 1)), color='g', label='Linear Regression Line')
+
+plt.scatter(a, z, color='r', marker='x')
+
+plt.xlabel('x')
+plt.ylabel('y')
+plt.show()
